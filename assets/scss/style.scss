@@ -1,0 +1,145 @@
+body {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  margin: 0;
+
+  animation: gradientShift 10s ease infinite;
+  text-align: center;
+
+  color: #ffffff;
+  background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 400% 400%;
+
+  font-family: "Arial", sans-serif;
+}
+
+.container {
+  padding: 40px 60px;
+
+  transform: scale(0.9);
+  animation: fadeIn 1.5s ease-out forwards;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  backdrop-filter: blur(10px);
+}
+
+.main-title {
+  margin-bottom: 10px;
+
+  animation: pulse 2s infinite alternate ease-in-out;
+  letter-spacing: 2px;
+
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+
+  font-size: 4em;
+}
+
+.subtitle {
+  animation: slideInUp 1s ease-out 1s forwards;
+
+  opacity: 0;
+
+  font-size: 1.5em;
+}
+
+/* Анімації */
+@keyframes gradientShift {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.8);
+
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+
+    color: #ffffff;
+  }
+  to {
+    transform: scale(1.05);
+
+    color: #fdbb2d;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 40px; /* Зменшуємо відступи */
+
+    transform: scale(1); /* Забираємо зменшення, щоб використати простір */
+  }
+
+  .main-title {
+    font-size: 3em; /* Робимо головний заголовок меншим */
+  }
+
+  .subtitle {
+    font-size: 1.3em; /* Трохи зменшуємо підзаголовок */
+  }
+}
+
+/* Для мобільних телефонів (екрани до 480px шириною) */
+@media (max-width: 480px) {
+  body {
+    /* Дозволяємо контейнеру бути не по центру, а трохи зверху
+       для маленьких екранів */
+    align-items: flex-start;
+
+    padding-top: 10vh; /* Відступ зверху */
+  }
+
+  .container {
+    width: 90%; /* Обмежуємо ширину, щоб не прилипав до країв */
+    padding: 25px 20px; /* Ще менші відступи */
+
+    transform: scale(1);
+  }
+
+  .main-title {
+    font-size: 2.2em; /* Ще менший шрифт */
+  }
+
+  .subtitle {
+    font-size: 1.1em;
+  }
+}
